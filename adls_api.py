@@ -20,20 +20,6 @@ def initialize_storage_account(storage_account_name=os.environ.get('Name'),
         print(e)
 
 
-# def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
-#
-#     try:
-#         global service_client
-#
-#         credential = ClientSecretCredential(tenant_id, client_id, client_secret)
-#
-#         service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
-#             "https", storage_account_name), credential=credential)
-#
-#     except Exception as e:
-#         print(e)
-
-
 def download_file_from_directory(fs, directory, fn):
     try:
         file_system_client = service_client.get_file_system_client(file_system=fs)
@@ -58,9 +44,9 @@ def download_file_from_directory(fs, directory, fn):
 
 def download_all_data():
     initialize_storage_account()
-    files = ['stats.csv', 'computations.csv', 'subject-info.csv']
+    files = ['OnlineRetail.xlsx']
     fs = 'responsesdatasets'
-    directory = 'participants'
+    directory = 'apriori_dir'
     for fn in files:
         download_file_from_directory(fs, directory, fn)
 
