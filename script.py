@@ -11,4 +11,6 @@ download_all_data()
 
 store_data = pd.read_excel("data/OnlineRetail.xlsx")
 
-print(store_data.head())
+store_data.head()
+
+print(store_data.columns.values.tolist())
